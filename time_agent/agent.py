@@ -11,7 +11,7 @@ from zoneinfo import ZoneInfo
 from google.adk.agents import Agent
 
 # TOOL: a plain Python function
-def get_current_time(city: str) -> dict:
+def get_current_time(city: str) -> dict[str,str]:
     """Returns the current time in a city.
 
     Args:
@@ -22,8 +22,13 @@ def get_current_time(city: str) -> dict:
         "london": "Europe/London",
         "new york": "America/New_York",
         "tokyo": "Asia/Tokyo",
+        "paris": "Europe/Paris",
+        "sydney": "Australia/Sydney",
+        "dubai": "Asia/Dubai",
+        "los angeles": "America/Los_Angeles",
+        "singapore": "Asia/Singapore",
     }
-    tz_name = zones.get(city.lower())
+    tz_name = zones.get(city.strip().lower())
     if not tz_name:
         return {"status": "error", "message": f"I don't know the timezone for {city}."}
     now = datetime.now(ZoneInfo(tz_name))
@@ -32,7 +37,7 @@ def get_current_time(city: str) -> dict:
 # AGENT: must be named root_agent
 root_agent = Agent(
     name="time_agent",
-    model='gemini-3.5-flash',   # use the model the CLI suggested if it differs
+    model='gemini-3.5-flash', 
     description="Tells the current time in different cities.",
     instruction=(
         "You are a friendly assistant. When the user asks about time in a city, "
