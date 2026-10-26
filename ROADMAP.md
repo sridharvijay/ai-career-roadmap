@@ -5,9 +5,9 @@ Tick `[x]` when finished. Missed a day? Just continue from the first unchecked i
 
 ## Phase 1 — Python + LLM foundations (Weeks 1–3)
 - [X] **D1** Prereq: Python venv basics. Task: create a venv in this repo, `pip install google-adk tzdata`, `pip freeze > requirements.txt`. Done when: `adk web` runs from the venv.
-- [X] **D2** Prereq: Python functions/type hints. Task: add type hints + docstrings to `get_current_time`; add 5 more cities. Done when: agent answers all of them.
+- [X] **D2** Prereq: Python functions/type hints. Task: add type hints + docstrings to `get_current_time`; add 5 more cities. Don when: agent answers all of them.
 - [X] **D3** Prereq: dicts/lists/comprehensions. Task: replace the city dict with a lookup of any IANA zone name given by the user. Done when: "time in Paris" works.
-- [ ] **D4** Prereq: what is a token, context window, temperature. Task: read Anthropic/Google prompting intro; write 3 system prompts for `time_agent`. Done when: you can explain tokens in 2 sentences.
+- [X] **D4** Prereq: what is a token, context window, temperature. Task: read Anthropic/Google prompting intro; write 3 system prompts for `time_agent`. Done when: you can explain tokens in 2 sentences.
 - [ ] **D5** Prereq: pydantic. Task: return the tool result using a pydantic model. Done when: validated output.
 - [ ] **D6** (Sat) Build: call Gemini or Claude API directly from a 20-line Python script. Done when: script prints a response.
 - [ ] **D7** (Sun) Plan next week; note 3 things you learned.
