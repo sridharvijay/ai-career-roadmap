@@ -8,7 +8,7 @@ Tick `[x]` when finished. Missed a day? Just continue from the first unchecked i
 - [X] **D2** Prereq: Python functions/type hints. Task: add type hints + docstrings to `get_current_time`; add 5 more cities. Don when: agent answers all of them.
 - [X] **D3** Prereq: dicts/lists/comprehensions. Task: replace the city dict with a lookup of any IANA zone name given by the user. Done when: "time in Paris" works.
 - [X] **D4** Prereq: what is a token, context window, temperature. Task: read Anthropic/Google prompting intro; write 3 system prompts for `time_agent`. Done when: you can explain tokens in 2 sentences.
-- [ ] **D5** Prereq: pydantic. Task: return the tool result using a pydantic model. Done when: validated output.
+- [X] **D5** Prereq: pydantic. Task: return the tool result using a pydantic model. Done when: validated output.
 - [ ] **D6** (Sat) Build: call Gemini or Claude API directly from a 20-line Python script. Done when: script prints a response.
 - [ ] **D7** (Sun) Plan next week; note 3 things you learned.
 - [ ] **D8–D10** Python `async/await` + `requests`/`httpx`; write an async function fetching a public API.

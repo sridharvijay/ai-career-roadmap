@@ -1,7 +1,23 @@
 from datetime import datetime
+from typing import Literal
 from zoneinfo import ZoneInfo
+from pydantic import BaseModel, Field
 from google.adk.agents import Agent
 from google.adk.models.lite_llm import LiteLlm
+
+# RESULT MODELS: pydantic validates the shape of every tool result (like a TS interface + runtime check)
+class TimeSuccess(BaseModel):
+    status: Literal["success"] = "success"
+    timezone: str
+    time: str
+    utc_time: str   # filled in with now.astimezone(ZoneInfo("UTC")).strftime("%I:%M %p")
+    utc_offset: str = Field(pattern=r"^[+-]\d{2}:\d{2}$")  # e.g. +05:30
+
+
+class TimeError(BaseModel):
+    status: Literal["error"] = "error"
+    message: str
+
 
 # TOOL: a plain Python function
 def get_current_time(timezone_name: str) -> dict[str, str]:
@@ -13,12 +29,16 @@ def get_current_time(timezone_name: str) -> dict[str, str]:
     try:
         now = datetime.now(ZoneInfo(timezone_name))
     except (KeyError, ValueError):
-        return {"status": "error", "message": f"Unknown IANA timezone: {timezone_name}."}
-    return {
-        "status": "success",
-        "timezone": timezone_name,
-        "time": now.strftime("%I:%M %p, %d %b %Y"),
-    }
+        return TimeError(message=f"Unknown IANA timezone: {timezone_name}.").model_dump()
+    offset = now.strftime("%z")  # "+0530"
+    result = TimeSuccess(
+        timezone=timezone_name,
+        time=now.strftime("%I:%M %p, %d %b %Y"),
+        utc_time=now.astimezone(ZoneInfo("UTC")).strftime("%I:%M %p"),
+        utc_offset=f"{offset[:3]}:{offset[3:]}",
+    )
+
+    return result.model_dump()  # ADK sends tool results to the model as JSON-able dicts
 
 # SYSTEM PROMPTS: swap the one passed to `instruction` below, then start a NEW session.
 PROMPT_TERSE = "Call get_current_time for any question about the current time."
