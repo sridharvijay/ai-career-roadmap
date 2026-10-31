@@ -9,19 +9,19 @@ Tick `[x]` when finished. Missed a day? Just continue from the first unchecked i
 - [X] **D3** Prereq: dicts/lists/comprehensions. Task: replace the city dict with a lookup of any IANA zone name given by the user. Done when: "time in Paris" works.
 - [X] **D4** Prereq: what is a token, context window, temperature. Task: read Anthropic/Google prompting intro; write 3 system prompts for `time_agent`. Done when: you can explain tokens in 2 sentences.
 - [X] **D5** Prereq: pydantic. Task: return the tool result using a pydantic model. Done when: validated output.
-- [ ] **D6** (Sat) Build: call Gemini or Claude API directly from a 20-line Python script. Done when: script prints a response.
-- [ ] **D7** (Sun) Plan next week; note 3 things you learned.
+- [X] **D6** (Sat) Build: call Gemini or Claude API directly from a 20-line Python script. Done when: script prints a response.
+- [X] **D7** (Sun) Plan next week; note 3 things you learned.
 - [ ] **D8–D10** Python `async/await` + `requests`/`httpx`; write an async function fetching a public API.
 - [ ] **D11–D14** FastAPI: hello world, GET/POST endpoints, `/docs`. Expose `get_current_time` as an endpoint.
 - [ ] **D15–D18** Structured output (JSON schema) from an LLM; parse into pydantic.
 - [ ] **D19–D21** Mini-project: CLI "ask the LLM to extract data from text" with validation. Push to GitHub.
 
-## Phase 2 — Agents (Weeks 4–7)
-- [ ] **D22–D26** ADK deep dive: tools, multiple tools, tool docstrings → schema. Add a weather tool.
-- [ ] **D27–D31** Sessions & state in ADK; memory across turns.
-- [ ] **D32–D36** Sub-agents / multi-agent routing (time agent + weather agent + coordinator).
-- [ ] **D37–D41** MCP: what it is; connect an MCP server as a tool.
-- [ ] **D42–D46** Mini-project: "Travel assistant" agent (time, weather, currency). GitHub + README.
+## Phase 2 — Agents (Weeks 4–7) — LangChain/LangGraph primary, ADK secondary
+- [ ] **D22–D26** LangChain basics: chat model, tools (`@tool`), docstrings → schema. Rebuild `time_agent` in LangChain; add a weather tool.
+- [ ] **D27–D31** LangGraph: state, nodes, edges, checkpointer (memory across turns).
+- [ ] **D32–D36** Multi-agent routing in LangGraph (time agent + weather agent + coordinator).
+- [ ] **D37–D41** MCP: what it is; connect an MCP server as a tool (langchain-mcp-adapters).
+- [ ] **D42–D46** Mini-project: "Travel assistant" agent (time, weather, currency) in LangGraph. GitHub + README. Add a short ADK-vs-LangGraph comparison (blog material).
 
 ## Phase 3 — RAG + data (Weeks 8–11)
 - [ ] **D47–D51** Embeddings concept; embed 20 sentences, cosine similarity in Python.
@@ -40,7 +40,7 @@ Tick `[x]` when finished. Missed a day? Just continue from the first unchecked i
 - [ ] **D102–D106** Project 1 polish: "AI chat with docs" live demo + README + screenshots.
 
 ## Phase 5 — Production + career (Weeks 17–22)
-- [ ] **D107–D111** Observability: logging, tracing LLM calls, cost tracking.
+- [ ] **D107–D111** Observability: logging, tracing LLM calls (LangSmith), cost tracking.
 - [ ] **D112–D116** Security: prompt injection, secrets, input validation, rate limiting.
 - [ ] **D117–D121** Evals in CI; regression tests for prompts.
 - [ ] **D122–D128** Project 2: agent that performs real tasks (calendar/GitHub/email via MCP).
