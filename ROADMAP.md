@@ -3,6 +3,23 @@
 Format: **Prereq** (what to know/read) → **Task** (≤1 hr) → **Done when**.
 Tick `[x]` when finished. Missed a day? Just continue from the first unchecked item.
 
+## Why this plan (job security in the AI era)
+Tools and frameworks change every few months; these things last. Everything below builds toward them:
+1. **Fundamentals that AI can't replace**: Python, SQL, HTTP/APIs, testing, system design, security.
+2. **Reliability of AI systems**: evals, tracing, cost control, guardrails. This is what companies pay for when "the demo works" turns into "production is on fire".
+3. **Your React edge**: few AI engineers can also ship a polished streaming UI. Keep it sharp (TypeScript + Vercel AI SDK alongside Python).
+4. **Using AI coding tools well** (Claude Code, Copilot): the engineer who reviews, tests, and directs AI output is more valuable than one who ignores it.
+5. **Visibility**: GitHub, README, live demos, short posts. Proof beats certificates.
+
+**Busy-day rule:** can't do 1 hr? Do 15 minutes (read one section or run one example) and tick nothing. Never skip two days in a row.
+
+## NEXT STEPS (do these in order, starting now)
+- [ ] **N1** Finish D8–D10 below (async + httpx). Add `pytest` and write 2 tests for `get_current_time` (valid zone, invalid zone).
+- [ ] **N2** Learn Git properly alongside: branch, commit, push. Create a GitHub repo for this project, push with a README. Commit at the end of every study day.
+- [ ] **N3** Do D11–D14 (FastAPI). Add TypeScript: call your FastAPI endpoint from a tiny React/Vite page. This links your 7 years of React to the new skills.
+- [ ] **N4** Do D15–D21 (structured output + CLI mini-project). Add 5 pytest cases for the validation logic.
+- [ ] **N5** Weekly Sunday review (30 min): update `LEARNINGS.md` with 3 lessons in your own words, then ask yourself "could I explain each in 2 sentences?"
+
 ## Phase 1 — Python + LLM foundations (Weeks 1–3)
 - [X] **D1** Prereq: Python venv basics. Task: create a venv in this repo, `pip install google-adk tzdata`, `pip freeze > requirements.txt`. Done when: `adk web` runs from the venv.
 - [X] **D2** Prereq: Python functions/type hints. Task: add type hints + docstrings to `get_current_time`; add 5 more cities. Don when: agent answers all of them.
@@ -47,6 +64,14 @@ Tick `[x]` when finished. Missed a day? Just continue from the first unchecked i
 - [ ] **D129–D134** Resume + LinkedIn reposition: "Full-stack engineer building AI agents".
 - [ ] **D135–D140** System design basics + interview practice (LLM app design questions).
 - [ ] **D141–D150** Apply, network, write 1–2 blog posts about projects.
+
+## Parallel career-security track (15–30 min/week, any time)
+- **Testing**: pytest basics now; later add tests for every tool and prompt.
+- **SQL**: one query a day on a practice site once Phase 3 starts.
+- **Cloud basics**: what a container, a VM, a managed DB, and a secret manager are (needed by Phase 4).
+- **System design**: read one "design X" write-up a week; sketch it yourself first.
+- **AI coding tools**: use Claude Code to scaffold, but always read the diff, run the tests, and explain each change before committing.
+- **Know the landscape**: LangGraph (primary), ADK, OpenAI/Claude SDKs, MCP, vector DBs, evals. You don't need depth in all, but you should be able to explain each.
 
 ## Lifelong habits (after Phase 5)
 - Weekly (Sun, 1 hr): read model/framework release notes.
